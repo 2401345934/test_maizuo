@@ -1,0 +1,27 @@
+@import "mixin";
+@import "element";
+@import "base";
+@import "reset";
+@import "common";
+@import "vart";
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.clear:after {
+  content: "";
+  display: block;
+  visibility: hidden;
+  overflow: hidden;
+  clear: both;
+}
+
+html , body {
+  overflow-x: hidden;
+}
+

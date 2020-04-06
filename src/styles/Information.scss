@@ -1,0 +1,230 @@
+#infoMation {
+  background: #eee !important;
+  height: 100%;
+
+
+
+  .actors {
+    margin-top: 0.1rem;
+    background-color: #fff;
+    min-height: 1.85rem;
+
+    .actors-list {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      position: relative;
+      width: 100%;
+      padding-left: 0.15rem;
+      white-space: nowrap;
+      overflow-x: auto;
+      overflow-y: hidden;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      li {
+        width: 0.85rem;
+        min-width: 0.85rem;
+        position: relative;
+        margin-right: 0.1rem;
+        height: 1.33rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .actors-list-t {
+          width: 0.85rem;
+          min-width: 0.85rem;
+          img {
+            width: 100%;
+          }
+        }
+        .actors-list-b {
+          width: 0.85rem;
+          min-width: 0.85rem;
+          text-align: center;
+          .actors-list-b-s1 {
+            padding-top: 0.08rem;
+            font-size: 0.12rem;
+            color: #191a1b;
+            width: 0.85rem;
+            height: 0.23rem;
+            display: block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+          .actors-list-b-s2 {
+            display: block;
+            text-align: center;
+            font-size: 10px;
+            color: #797d82;
+          }
+        }
+
+      }
+    }
+  }
+
+  .actors-title-bar {
+    width: 100%;
+    padding: 15px;
+
+    span {
+      display: inline-block;
+      height: 0.22rem;
+      line-height: 0.22rem;
+      font-size: 0.16rem;
+      text-align: left;
+      color: #191a1b;
+    }
+  }
+
+}
+
+.img-wrap {
+  width: 100%;
+  background: rgb(249, 249, 249);
+  opacity: 1;
+  display: block;
+  position: relative;
+
+  img {
+    width: 100%;
+  }
+}
+
+.film-wrap {
+  padding: 0.15rem;
+  padding-top: 0.12rem;
+  background-color: #fff;
+  .col {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+
+    .col-name {
+      width: 2.56rem;
+    }
+
+    .name {
+      color: #191a1b;
+      font-size: 0.18rem;
+      height: 0.24rem;
+      line-height: 0.24rem;
+      margin-right: 0.07rem;
+    }
+    .item {
+      font-size: 0.09rem;
+      color: #fff;
+      background-color: #d2d6dc;
+      height: 0.14rem;
+      line-height: 0.14rem;
+      padding: 0 2px;
+      border-radius: 2px;
+      display: inline-block;
+    }
+
+    .col-r {
+      width: calc(100% - 2.5rem);
+      text-align: right;
+      color: #ffb232;
+
+      .col-r-1 {
+        font-size: 0.18rem;
+        font-style: italic;
+        margin-right: 0.08rem;
+      }
+      .col-r-2 {
+        font-size: 0.1rem;
+      }
+    }
+  }
+  .film-category, .film-premiere-time, .film-nation-runtime {
+    font-size: 0.13rem;
+    color: #797d82;
+    margin-top: 0.04rem
+  }
+
+  .film-synopsis {
+    font-size: 0.13rem;
+    color: #797d82;
+    margin-top: 0.07rem
+  }
+
+  .toggle {
+    transition: 2s ease 1s;
+    text-align: center;
+    display: block;
+    height: auto;
+    width: 20px;
+    margin: auto;
+    line-height: normal;
+  }
+
+}
+
+.photos {
+  margin-top: 0.2rem;
+  margin-bottom: 0.03rem;
+  background-color: #fff;
+  .photos-t {
+    height: 0.62rem;
+    width: 100%;
+    padding: 0.15rem;
+    .photos-t-l {
+      font-size: 16px;
+      text-align: left;
+      color: #191a1b;
+      display: inline-block;
+      height: 0.22rem;
+      line-height: 0.22rem;
+    }
+    .photos-t-r {
+      float: right;
+      font-size: 0.13rem;
+      color: #797d82;
+    }
+  }
+  .photos-b {
+    height: 1.15rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    background: #fff;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 0.15rem;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    li {
+      position: relative;
+      margin-right: 10px;
+      width: auto !important;
+      cursor: pointer;
+      display: block;
+      float: left;
+      div {
+        width: 1.5rem;
+        height: 1rem;
+        box-sizing: border-box;
+        background: rgb(249, 249, 249);
+        opacity: 1;
+        display: block;
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

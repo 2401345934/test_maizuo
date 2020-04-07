@@ -14,7 +14,8 @@
 
     <div style="height: 0.95rem;"></div>
 
-    <div class="content">
+    <!--滚动流畅-->
+    <div class="content" :style="{height: scrollHeight, overflow: 'hidden'}">
       <ul>
         <MoveList :MoveList="listArr"></MoveList>
       </ul>
@@ -38,6 +39,7 @@
   import { instance } from "@/utils/http";
   import MoveList from "@/components/MovieList";
   import { mapState, mapActions, mapMutations } from "vuex";
+  import BScroll from "better-scroll";
 
   export default {
     name: "index",
@@ -49,15 +51,25 @@
         isAreaList: false,
         current: "全城",
         isClass: false,
-        isCurrentShow: false
+        isCurrentShow: false,
+        scrollHeight: 0
       };
+    },
+    mounted() {
+      this.scrollHeight = document.documentElement.clientHeight - 144 + "px";
+      new BScroll(".content", {
+        scrollbar: {
+          fade:true    //可以滚动了
+        },
+        click: true, //可以点击了
+      });
     },
     methods: {
       handlerCtiy(path) {
         if (path === "ctiy") {
           this.setCinemaList([]);
         }
-          this.$router.push("/city");
+        this.$router.push("/city");
       },
       handlerSearch() {
         this.$router.push("/search");

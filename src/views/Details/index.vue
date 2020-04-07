@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <div class="title">
-      <span @click="$router.push('/city')" class="span4">{{ctiyArr.name}} <span class="iconfont icon-back"></span> </span>
+      <span @click="handlerCtiy('ctiy')" class="span4">{{ctiyArr.name}} <span class="iconfont icon-back"></span> </span>
       <span>影院</span>
       <span class="iconfont icon-search title-b" @click="handlerSearch"></span>
     </div>
@@ -37,7 +37,7 @@
 <script>
   import { instance } from "@/utils/http";
   import MoveList from "@/components/MovieList";
-  import { mapState , mapActions } from "vuex";
+  import { mapState, mapActions, mapMutations } from "vuex";
 
   export default {
     name: "index",
@@ -53,6 +53,12 @@
       };
     },
     methods: {
+      handlerCtiy(path) {
+        if (path === "ctiy") {
+          this.setCinemaList([]);
+        }
+          this.$router.push("/city");
+      },
       handlerSearch() {
         this.$router.push("/search");
       },
@@ -60,15 +66,20 @@
         this.current = val;
         this.isAreaList = false;
       },
-      ...mapActions("moveList",["getCinemaActions"])
+      ...mapActions("moveList", ["getCinemaActions"]),
+      ...mapMutations("moveList", ["setCinemaList"])
     },
     created() {
+      if (this.cinemaList.length > 0) {
+
+      } else {
         this.getCinemaActions(this.ctiyArr);
+      }
       ;
     },
     computed: {
-      ...mapState( "moveList" ,["cinemaList"]),
-      ...mapState("ctiy",["ctiyArr"]),
+      ...mapState("moveList", ["cinemaList"]),
+      ...mapState("ctiy", ["ctiyArr"]),
       areaList() {
         let newArr = this.cinemaList.map((item) => item.districtName);
         let tmpArr = ["全城", ...Array.from(new Set(newArr))];

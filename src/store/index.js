@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
-
+import createPersistedState from "vuex-persistedstate";
 
 //引入nav
 import nav from "./module/nav";
@@ -16,7 +16,8 @@ let store = new Vuex.Store({
     moveList  , //影院的模块
     ctiy ,   //  地区
     banner,  //轮播图页面的
-  }
+  },
+  plugins: [createPersistedState()],
 });
 
 export default store;

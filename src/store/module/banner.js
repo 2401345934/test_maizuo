@@ -8,15 +8,19 @@ const module = {
       pinyin: "shanghai",
       isHot: 1
     },
-    infoList: []
+    infoList: [],
+    bannerList: []
   },
   mutations: {
     setInfoList(state, data) {
-      state.infoList = data
+      state.infoList = data;
     },
-    setCtiy(state,data) {
+    setCtiy(state, data) {
       state.ctiy = data;
     },
+    setBannerList(state, data) {
+      state.bannerList = data;
+    }
   },
   actions: {
     getInfoList({ commit, state }) {
@@ -26,11 +30,24 @@ const module = {
         }
       }).then((res) => {
         commit("setInfoList", res.data.data.films);
-        console.log(res.data.data.films);
+      });
+    },
+    getBanner({ commit , state }) {
+      instance.get(`/gateway?type=2&cityId=${state.ctiy.cityId}&k=9356399`, {
+        headers: {
+          "X-Host": "mall.cfg.common-banner"
+        }
+      }).then((res) => {
+        commit("setBannerList", res.data.data);
+        console.log(res.data.data);
       });
     }
   },
-  getters: {},
+  getters: {
+    bList(state){
+      return state.bannerList
+    }
+  },
   namespaced: true
 };
 
